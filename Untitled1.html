@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Test</title>
+</head>
+
+<body>
+
+<input type="text" id="x"><br>
+<button onclick="foo()">Calculate</button><br>
+<p id="ans">g</p>
+
+<script>
+const l = 'owueasrmhg';
+
+function foo() {
+
+let x = parseInt(document.getElementById("x").value);
+let skibid = false;
+let ans = "No result";
+
+while (x >= 40) {
+
+for (let f = Math.ceil(Math.sqrt(x)); f > 0; f--) {
+
+if (x % f === 0) {
+
+if (String(f).includes('40') || String(x / f).includes('40')) {
+
+if (String(f).includes('40')) {
+ans = Array.from(String(f), c => l[parseInt(c)]).join('') + String(x / f);
+}
+
+else if (String(x / f).includes('40')) {
+ans = Array.from(String(x / f), c => l[parseInt(c)]).join('') + String(f);
+}	
+
+skibid = true;
+break;
+
+}
+
+}
+
+}
+
+if (skibid) break;
+
+x -= 1;
+
+}
+
+document.getElementById("ans").innerHTML = ans;
+
+}
+</script>
+
+</body>
+</html>
